@@ -36,7 +36,9 @@ namespace Exercise_1_2.person
 
         public object Clone()
         {
-            return this.MemberwiseClone();
+            Employee newEmployee = (Employee)this.MemberwiseClone();
+            newEmployee.Room = new Room(Room.Number);
+            return newEmployee;
         }
     }
 }
