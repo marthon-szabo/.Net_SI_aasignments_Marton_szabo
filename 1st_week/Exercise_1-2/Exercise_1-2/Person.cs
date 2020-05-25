@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace Exercise_1_2
+namespace Exercise_1_2.person
 {
     internal class Person
     {
-        string name;
-        private DateTime birthDate;
-        Gender gender;
+        protected string name;
+        protected DateTime birthDate;
+        protected Gender gender;
         
 
         public Person(string name, DateTime birthDate, Gender gender)
@@ -16,6 +16,8 @@ namespace Exercise_1_2
             this.gender = gender;
             
         }
+
+        
 
         public string Name
         {
@@ -27,9 +29,12 @@ namespace Exercise_1_2
 
         public DateTime BirthDate => birthDate;
 
+        public Employee Employee { get; }
+
         public override string ToString()
         {
-            return $"Name: {name}, birth: {birthDate:dd/MM/yyyy}, gender: {gender}.";
+            return $"Person: [Name: {name}, birth: {birthDate:dd/MM/yyyy}, gender: {gender}.]";
+            
         }
     }
 }
