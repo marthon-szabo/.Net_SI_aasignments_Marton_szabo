@@ -7,14 +7,11 @@ namespace Exercise_1_2
     {
         public static void Main(string[] args)
         {
-            Person person1 = new Person("Jason Smith", new DateTime(1980, 12,03), Gender.MALE);
-            Console.WriteLine(person1.Gender);
-            Console.WriteLine(person1);
-            
-            Employee emp1 = new Employee(10000, Profession.ELECTRIC_ENGINEER, "Josephine Smith", 
-                new DateTime(1990, 10, 20), Gender.FEMALE, new Room(10));
-            
-            Console.WriteLine(emp1);
+            Employee emp1 = new Employee(Profession.ELECTRIC_ENGINEER, "Josephine Smith", 
+                new DateTime(1990, 10, 20), Gender.MALE);
+            emp1.Room = new Room(10);
+            Employee emp1Clone = (Employee) emp1.Clone();
+            Console.WriteLine(emp1Clone);
         }
     }
 }
