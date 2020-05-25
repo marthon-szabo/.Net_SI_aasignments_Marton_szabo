@@ -12,7 +12,7 @@ namespace Exercise_1_2
             Console.WriteLine(person1);
             
             Employee emp1 = new Employee(10000, Profession.ELECTRIC_ENGINEER, "Josephine Smith", 
-                new DateTime(1990, 10, 20), Gender.FEMALE);
+                new DateTime(1990, 10, 20), Gender.FEMALE, new Room(10));
             
             Console.WriteLine(emp1);
         }
