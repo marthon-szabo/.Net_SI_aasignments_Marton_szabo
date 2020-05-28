@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Button Margin="534,296,182,83" Background="Aqua" MouseUp="HandleMouseUp">
+            <Button.Content>
+                <TextBlock Foreground="Blue">Multi</TextBlock>
+            </Button.Content>
+        </Button>
     </Grid>
 </Window>
