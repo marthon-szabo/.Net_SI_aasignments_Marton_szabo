@@ -1,8 +1,8 @@
 using System.Reflection.Metadata;
 
-namespace RandomPractice
+namespace Calculator
 {
-     public class Calculator
+     public partial class Calculator
     {
         public int Subtract(int a, int b)
         {

@@ -1,5 +1,5 @@
 ﻿using System;
-
+using Calculator;
 namespace RandomPractice
 {
     class Program
@@ -7,20 +7,18 @@ namespace RandomPractice
         delegate int HandleCalculation(int a, int b);          
         static void Main(string[] args)
         {
-            HandleCalculation subtraction = new HandleCalculation(Subtraction);
-            HandleCalculation addition = new HandleCalculation(Addition);
-            Console.WriteLine(subtraction(10, 10));
-            Console.WriteLine(addition(10, 10));
+            Calculator calc = new Calculator();
+            calc.
             
         }
 
-        static int Subtraction(int a, int b)
+        public partial class Calculator
         {
-            return a - b;
+            public int Addition(int a, int b)
+            {
+                return a + b;
+            }
         }
-        static int Addition(int a, int b)
-        {
-            return a + b;
-        }
+
     }
 }

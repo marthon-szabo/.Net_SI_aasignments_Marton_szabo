@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp_1st_SI_Practice__" xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="319.5" Width="514"
+        Title="MainWindow" Height="300" Width="300"
         Background="{DynamicResource Bg}">
     <Window.Resources>
         <sys:String x:Key="Menu">Menu:</sys:String>
@@ -20,22 +20,46 @@
             <GradientStop Offset="2" Color="Red"/>
         </LinearGradientBrush>
     </Window.Resources>
-    <Grid Name="grid">
-        <StackPanel>
-            <Label Target="{Binding ElementName=nameTxt}">
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="http://cdn1.iconfinder.com/data/icons/fatcow/16/bullet_green.png" />
-                    <AccessText Text="_Name" />
-                </StackPanel>
-            </Label>
-            <TextBox Name="nameTxt" />
-            <Label Target="{Binding ElementName=mailTxt}">
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="http://cdn1.iconfinder.com/data/icons/fatcow/16/bullet_blue.png" />
-                    <AccessText Text="_Mail" />
-                </StackPanel>
-            </Label>
-            <TextBox Name="mailTxt"/>
-        </StackPanel>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Label Content="_Name: " FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Target="{Binding ElementName=txtName}"/>
+        <TextBox Name="txtName" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,15,0">
+            <TextBox.ToolTip>
+                <WrapPanel>
+                    <Image Source="C:\Users\makot\OneDrive\Képek\question_mark.png" Width="20" Height="20" Stretch="Uniform"/>
+                    <TextBlock Text="This is my first try, so be patient, please!" />
+                </WrapPanel>
+            </TextBox.ToolTip>
+        </TextBox>
+        <Label Content="_Email: " FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Target="{Binding ElementName=emailName}"/>
+        <TextBox Name="txtEmail" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,15,0">
+            <TextBox.ToolTip>
+                <WrapPanel>
+                    <Image Source="C:\Users\makot\OneDrive\Képek\question_mark.png" Width="20" Height="20" Stretch="Uniform"/>
+                    <TextBlock Text="This is my first try, so be patient, please!" />
+                </WrapPanel>
+            </TextBox.ToolTip>
+        </TextBox>
+        <Label Content="_Comment: " FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Target="{Binding ElementName=txtComment}" Grid.Row="2" Grid.Column="0" />
+        <TextBox AcceptsReturn="True" TextWrapping="Wrap" Grid.RowSpan="2" Grid.ColumnSpan="2" Name="txtComment" Grid.Row="2" Grid.Column="1" Margin="0,0,15,60" Height="100">
+            <TextBox.ToolTip>
+                <WrapPanel>
+                    <Image Source="C:\Users\makot\OneDrive\Képek\question_mark.png" Width="20" Height="20" Stretch="Uniform"/>
+                    <TextBlock Text="This is my first try, so be patient, please!" />
+                </WrapPanel>
+            </TextBox.ToolTip>
+        </TextBox>
+        <Button Content="Submit" Width="100" Margin="50,110,0,0" Grid.Row="3" Grid.Column="1" Click="Button_Click"/>
+        
+
     </Grid>
 </Window>
