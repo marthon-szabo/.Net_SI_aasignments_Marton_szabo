@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp(1st_SI_Practice )", "WpfApp(1st_SI_Practice ).csproj", "{D3035FF4-C09C-416D-B7B9-DCFEB781E5B0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice", "..\Practice\Practice.csproj", "{7245A893-752B-461C-9A36-BFB318927C6C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D3035FF4-C09C-416D-B7B9-DCFEB781E5B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3035FF4-C09C-416D-B7B9-DCFEB781E5B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3035FF4-C09C-416D-B7B9-DCFEB781E5B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7245A893-752B-461C-9A36-BFB318927C6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7245A893-752B-461C-9A36-BFB318927C6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7245A893-752B-461C-9A36-BFB318927C6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7245A893-752B-461C-9A36-BFB318927C6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -20,8 +20,6 @@ namespace WpfApp_1st_SI_Practice__.UserControls
     /// </summary>
     public partial class UserControl1 : UserControl
     {
-        private UserControl1 DataContext;
-
         public UserControl1()
         {
             InitializeComponent();
