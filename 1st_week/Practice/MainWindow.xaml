@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Practice"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Background="{DynamicResource customBg}">
+        Title="MainWindow" Height="{Binding Path=Text, ElementName=heightInput}" Width="{Binding Path=Text, ElementName=widthInput}" Background="{DynamicResource customBg}">
     <Window.Resources>
         <LinearGradientBrush x:Key="customBg">
             <GradientStop Offset="0" Color="AntiqueWhite" />
@@ -15,13 +15,16 @@
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <StackPanel>
-            <TextBox Name="txtInput" />
-        </StackPanel>
-        <WrapPanel Margin="10">
-            <TextBlock Text="{Binding Path=Text, ElementName=txtInput}" />
+        <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Dimensions: "/>
+            <TextBox Name="widthInput" Text="{Binding Width}" Width="40" Foreground="Red"/>
+            <TextBlock Text=" x "/>
+            <TextBox Name="heightInput" Text="{Binding Height}" Width="40" Foreground="Blue"/>
+
+
         </WrapPanel>
+
+
     </Grid>
 </Window>

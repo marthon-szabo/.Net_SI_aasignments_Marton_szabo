@@ -23,6 +23,7 @@ namespace Practice
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = this;
         }
     }
 }
