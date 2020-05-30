@@ -1,65 +1,16 @@
-﻿<Window x:Class="WpfApp_1st_SI_Practice__.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp_1st_SI_Practice__" xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="300"
-        Background="{DynamicResource Bg}">
-    <Window.Resources>
-        <sys:String x:Key="Menu">Menu:</sys:String>
-        <x:Array x:Key="MenuItems" Type="sys:String">
-            <sys:String>Item 1</sys:String>
-            <sys:String>Item 2</sys:String>
-            <sys:String>Item 3</sys:String>
-        </x:Array>
-        <LinearGradientBrush x:Key="Bg">
-            <GradientStop Offset="0" Color="AntiqueWhite" />
-            <GradientStop Offset="1" Color="Azure"/>
-            <GradientStop Offset="2" Color="Red"/>
-        </LinearGradientBrush>
-    </Window.Resources>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+﻿<Window x:Class=" WpfApp_1st_SI_Practice__.UserControls.UserControl1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:uc="clr-namespace:WpfApp_1st_SI_Practice__.UserControls"
+    Title="LimitedInputSample" Height="200" Width="300">
+    <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Label Content="_Name: " FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Target="{Binding ElementName=txtName}"/>
-        <TextBox Name="txtName" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,15,0">
-            <TextBox.ToolTip>
-                <WrapPanel>
-                    <Image Source="C:\Users\makot\OneDrive\Képek\question_mark.png" Width="20" Height="20" Stretch="Uniform"/>
-                    <TextBlock Text="This is my first try, so be patient, please!" />
-                </WrapPanel>
-            </TextBox.ToolTip>
-        </TextBox>
-        <Label Content="_Email: " FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Target="{Binding ElementName=emailName}"/>
-        <TextBox Name="txtEmail" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,15,0">
-            <TextBox.ToolTip>
-                <WrapPanel>
-                    <Image Source="C:\Users\makot\OneDrive\Képek\question_mark.png" Width="20" Height="20" Stretch="Uniform"/>
-                    <TextBlock Text="This is my first try, so be patient, please!" />
-                </WrapPanel>
-            </TextBox.ToolTip>
-        </TextBox>
-        <Label Content="_Comment: " FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Target="{Binding ElementName=txtComment}" Grid.Row="2" Grid.Column="0" />
-        <TextBox AcceptsReturn="True" TextWrapping="Wrap" Grid.RowSpan="2" Grid.ColumnSpan="2" Name="txtComment" Grid.Row="2" Grid.Column="1" Margin="0,0,15,60" Height="100">
-            <TextBox.ToolTip>
-                <WrapPanel>
-                    <Image Source="C:\Users\makot\OneDrive\Képek\question_mark.png" Width="20" Height="20" Stretch="Uniform"/>
-                    <TextBlock Text="This is my first try, so be patient, please!" />
-                </WrapPanel>
-            </TextBox.ToolTip>
-        </TextBox>
-        <Button Content="Submit" Width="100" Margin="50,110,0,0" Grid.Row="3" Grid.Column="1" Click="Button_Click"/>
-        
+
+        <uc:UserControl1 Title="Enter title:" MaxLength="30" Height="50" />
+        <uc:UserControl1 Title="Enter description:" MaxLength="140" Grid.Row="1" />
 
     </Grid>
 </Window>
