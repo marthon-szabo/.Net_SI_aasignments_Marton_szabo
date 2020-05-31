@@ -63,6 +63,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="SnakePart.cs" />
     <Compile Include="SnakeGame.xaml.cs">
       <DependentUpon>SnakeGame.xaml</DependentUpon>
       <SubType>Code</SubType>

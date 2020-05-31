@@ -21,6 +21,10 @@ namespace SnakeGame
     public partial class MainWindow : Window
     {
         const int SnakeSquareSize = 20;
+        SolidColorBrush snakeBody = Brushes.Gray;
+        SolidColorBrush snakeHead = Brushes.Red;
+        List<SnakePart> snakeParts = new List<SnakePart>();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -62,6 +66,26 @@ namespace SnakeGame
 
                 if (nextY >= GameArea.ActualHeight)
                     doneDrawingBackground = true;
+            }
+        }
+
+        void DrawSnake()
+        {
+            foreach (SnakePart snakePart in snakeParts)
+            {
+                if (snakePart.UIElement == null)
+                {
+                    snakePart.UIElement = new Rectangle()
+                    {
+                        Width = SnakeSquareSize,
+                        Height = SnakeSquareSize,
+                        Fill = snakePart.IsHead ? snakeHead : snakeBody
+                    };
+                    GameArea.Children.Add(snakePart.UIElement);
+                    Canvas.SetTop(snakePart.UIElement, snakePart.PositionY);
+                    Canvas.SetLeft(snakePart.UIElement, snakePart.PositionX);
+                }
+
             }
         }
     }
