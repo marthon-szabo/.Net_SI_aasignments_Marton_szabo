@@ -21,6 +21,8 @@ namespace SnakeGame
     public partial class MainWindow : Window
     {
         const int SnakeSquareSize = 20;
+        int initialX = 20;
+        const int initialY = 20;
         SolidColorBrush snakeBody = Brushes.Gray;
         SolidColorBrush snakeHead = Brushes.Red;
         List<SnakePart> snakeParts = new List<SnakePart>();
@@ -28,11 +30,24 @@ namespace SnakeGame
         public MainWindow()
         {
             InitializeComponent();
+            snakeParts.Add(new SnakePart()
+            {
+                IsHead = true,
+                PositionX = initialX,
+                PositionY = initialY
+            });
+
+            snakeParts.Add(new SnakePart()
+            {
+                PositionX = initialX,
+                PositionY = initialY + 20
+            }); 
         }
 
         private void Window_ContentRendered(object sender, EventArgs e)
         {
             DrawMap();
+            DrawSnake();
         }
 
         private void DrawMap()
