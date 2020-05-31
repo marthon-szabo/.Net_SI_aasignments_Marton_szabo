@@ -24,7 +24,7 @@
         <StackPanel Grid.Column="1">
             <Button Content="_Add User" Click="Button_Click" Margin="10" Padding="10"/>
             <Button Content="_Change User" Margin="10" Padding="10"/>
-            <Button Content="_Delete User" Margin="10" Padding="10"/>
+            <Button Content="_Delete User" Margin="10" Padding="10" Click="DeleteButtonClick"/>
         </StackPanel>
     </Grid>
 </Window>

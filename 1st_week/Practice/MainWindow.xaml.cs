@@ -45,6 +45,14 @@ namespace Practice
                 users.Add(new User());
             }
         }
+
+        private void DeleteButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (lbUsers.SelectedItem != null)
+            {
+                users.Remove(lbUsers.SelectedItem as User);
+            }
+        }
     }
 
     public class User : INotifyPropertyChanged
