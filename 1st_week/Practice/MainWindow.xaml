@@ -5,26 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Practice"
         mc:Ignorable="d"
-        Title="MainWindow" Height="{Binding Path=Text, ElementName=heightInput}" Width="{Binding Path=Text, ElementName=widthInput}" Background="{DynamicResource customBg}">
+        Title="MainWindow" Background="{DynamicResource customBg}" Width="433.221" Height="262.656">
     <Window.Resources>
         <LinearGradientBrush x:Key="customBg">
             <GradientStop Offset="0" Color="AntiqueWhite" />
             <GradientStop Offset="1" Color="GhostWhite" />
         </LinearGradientBrush>
     </Window.Resources>
-    <Grid Margin="10">
+    <Grid Margin="10,10,9,7">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="Dimensions: "/>
-            <TextBox Name="widthInput" Text="{Binding Width}" Width="40" Foreground="Red"/>
-            <TextBlock Text=" x "/>
-            <TextBox Name="heightInput" Text="{Binding Height}" Width="40" Foreground="Blue"/>
-
-
-        </WrapPanel>
-
-
+        <ListBox Name="lbUsers" Width="200" Height="100" DisplayMemberPath="Name"/>
+        <StackPanel Grid.Column="1">
+            <Button Content="_Add User" Click="Button_Click" Margin="10" Padding="10"/>
+            <Button Content="_Change User" Margin="10" Padding="10"/>
+            <Button Content="_Delete User" Margin="10" Padding="10"/>
+        </StackPanel>
     </Grid>
 </Window>
