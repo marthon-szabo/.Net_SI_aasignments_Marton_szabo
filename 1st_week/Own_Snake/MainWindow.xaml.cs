@@ -24,13 +24,14 @@ namespace Own_Snake
         public MainWindow()
         {
             InitializeComponent();
-            DrawSnake();
+            DrawMap();
         }
 
-        private void DrawSnake()
+        private void DrawMap()
         {
-            byte rowNumber = 1;
-            bool isDone = false;
+            byte rowNumber = 0;
+            byte colNumber = 0;
+            bool isDone = rowNumber == map.Height;
             bool isOdd = true;
 
             while (isDone == false)
@@ -41,6 +42,22 @@ namespace Own_Snake
                     Height = snakeSize,
                     Fill = isOdd ? Brushes.Black : Brushes.White
                 };
+
+                map.Children.Add(rectangle);
+                
+                if (colNumber < map.Width)
+                {
+                    Canvas.SetLeft(rectangle, colNumber);
+                    Canvas.SetTop(rectangle, rowNumber);
+                    colNumber += snakeSize;
+                } else if (rowNumber < map.Height)
+                {
+                    colNumber = 0;
+                    Canvas.SetLeft(rectangle, colNumber);
+                    Canvas.SetTop(rectangle, rowNumber);
+                    colNumber += snakeSize;
+                    rowNumber += snakeSize;
+                }
 
             }
         }

@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="400">
     <Grid>
-        <Border BorderThickness="5" BorderBrush="Black" />
+        <Border BorderThickness="5" BorderBrush="Black">
+            <Canvas Name="map" />
+        </Border>
     </Grid>
 </Window>
