@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemasvcvd.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SnakeGame"
-        mc:Ignorable="d"
         Title="SnakeGame" SizeToContent="WidthAndHeight" ContentRendered="Window_ContentRendered">
     <Border BorderThickness="10" BorderBrush="Black">
         <Canvas Name="GameArea" ClipToBounds="True" Width="400" Height="400">
