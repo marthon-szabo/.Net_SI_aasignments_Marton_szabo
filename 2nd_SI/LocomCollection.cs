@@ -9,7 +9,7 @@ namespace _2nd_SI
 {
     class LocomCollection : System.Collections.IEnumerable
     {
-        Locomotive[] locoms = new Locomotive[] { new Locomotive("V43"), new Locomotive("V63") };
+        Locomotive[] locoms;
 
         public LocomCollection(Locomotive[] locoms)
         {
@@ -41,15 +41,30 @@ namespace _2nd_SI
             this.locoms = locoms;
         }
 
-        public object Current
+       
+
+        public Locomotive Current
         {
             get
+            {
+                try
+                {
+                    return locoms[position];
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    throw new InvalidOperationException();
+                }
+            }
+        }
+
+        object IEnumerator.Current
+        {
+            get 
             {
                 return Current;
             }
         }
-
-
 
         public bool MoveNext()
         {
@@ -70,6 +85,11 @@ namespace _2nd_SI
         public Locomotive(string name)
         {
             Name = name;
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }

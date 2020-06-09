@@ -13,7 +13,13 @@ namespace _2nd_SI
         
         static async Task Main(string[] args)
         {
-            
+            Locomotive[] locs = new Locomotive[] { new Locomotive("V43"), new Locomotive("V63") };
+            LocomCollection locomCollection = new LocomCollection(locs);
+
+            foreach (Locomotive loc  in locomCollection)
+            {
+                Console.WriteLine(loc);
+            }
         }
 
         
