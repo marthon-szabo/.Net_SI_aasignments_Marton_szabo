@@ -20,8 +20,14 @@ namespace _2nd_SI
 
      
 
-        public IEnumerator GetEnumerator()
+        public LocomEnum GetEnumerator()
         {
+            return new LocomEnum(locoms);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return (IEnumerator)GetEnumerator();
         }
     }
 
