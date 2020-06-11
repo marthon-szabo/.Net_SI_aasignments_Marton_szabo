@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "SeekAndArchive": {
+      "commandName": "Project",
+      "commandLineArgs": "test.txt C:\\Users\\DELL\\.Net_SI_aasignments_Marton_szabo\\2nd_SI\\SeekAndArchive\\test"
+    }
+  }
+}
