@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace SeekAndArchive
 {
@@ -22,29 +23,35 @@ namespace SeekAndArchive
 
             if (di.Exists)
             {
-                Console.WriteLine($"The path {directory} exists!");
-
                 FileInfo[] fileInfoes = di.GetFiles();
 
 
                 foreach (FileInfo fileInfo in fileInfoes)
                 {
-                    if (Path.GetFileName(fileInfo.FullName) == file)
+                    if (file.Contains(Path.GetFileName(fileInfo.FullName)))
                     {
-                        return fileInfo.FullName;
-                    }
-                    else
-                    {
-                        return $"There's no file here with the name: {file}";
+                        return $"The full path of the file: {fileInfo.FullName}";
                     }
                     
+
+                }
+                 if (di.GetDirectories().Length >= 1)
+                {
+                    List<DirectoryInfo> subDirectories = di.GetDirectories().ToList<DirectoryInfo>();
+                    //subDirectories.ForEach(subDir => RecursiveSearch(subDir.Name, file));
+                    string result;
+                    foreach (DirectoryInfo subDir in subDirectories)
+                    {
+                        result = RecursiveSearch(subDir.FullName, file);
+                        if (result != null)
+                        {
+                            return result;
+                        }
+                    }
                 }
             }
-            else
-            {
-                return $"The following directory: {directory} does not exist!";
-            }
-            return $"The following directory: {directory} does not exist!";
+            return null;
         }
+        
     }
 }
