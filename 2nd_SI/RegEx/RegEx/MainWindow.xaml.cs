@@ -25,6 +25,7 @@ namespace RegEx
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = this;
             
         }
     }
