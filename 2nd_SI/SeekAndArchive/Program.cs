@@ -38,8 +38,9 @@ namespace SeekAndArchive
                  if (di.GetDirectories().Length >= 1)
                 {
                     List<DirectoryInfo> subDirectories = di.GetDirectories().ToList<DirectoryInfo>();
-                    //subDirectories.ForEach(subDir => RecursiveSearch(subDir.Name, file));
                     string result;
+                    //subDirectories.ForEach(subDir => RecursiveSearch(subDir.Name, file));
+                    
                     foreach (DirectoryInfo subDir in subDirectories)
                     {
                         result = RecursiveSearch(subDir.FullName, file);
