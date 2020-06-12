@@ -21,12 +21,43 @@ namespace RegEx
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+        TextBlock attention = new TextBlock()
+        {
+            Foreground = Brushes.Red,
+        };
+
         public MainWindow()
         {
             InitializeComponent();
             DataContext = this;
-            
+            InitializeAttention();
+
         }
+
+        private void NameGotFocus(object sender, TextChangedEventArgs e)
+        {
+            
+            if (!Regex.IsMatch(txtName.Text, @"[a-zA-Z]+"))
+            {
+                txtName.Background = Brushes.Red;
+                BadName.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                txtName.Background = Brushes.LightGreen;
+                BadName.Visibility = Visibility.Hidden;
+            }
+
+        }
+        void InitializeAttention()
+        {
+            MainGrid.Children.Add(attention);
+            attention.Visibility = Visibility.Hidden;
+        }
+
+
+
+        
     }
+        
 }

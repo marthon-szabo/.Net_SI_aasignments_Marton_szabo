@@ -14,7 +14,7 @@
             <Setter Property="Margin" Value="50,20"/>
         </Style>
         <Style TargetType="{x:Type TextBox}">
-            <Setter Property="Background" Value="LightGreen"/>
+            <Setter Property="Background" Value="Red"/>
             <Setter Property="Margin" Value="-30,30,30,40"/>
         </Style>
         <LinearGradientBrush x:Key="WindowBg">
@@ -33,11 +33,16 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Name" Margin="28,22,72,13"/>
-        <TextBox Grid.ColumnSpan="2" Margin="100,27,53,43"/>
+        <TextBlock Name="BadName" Margin="10,57,90,66" Grid.RowSpan="2" 
+                   FontSize="15" Foreground="Red" Visibility="Hidden">
+            You must use big or small alphabetical <LineBreak/>
+            characters!
+        </TextBlock>
+        <TextBox Name="txtName" Tag="Name must contain only alphabetic characters!" Grid.ColumnSpan="2" Margin="100,27,53,43" TextChanged="NameGotFocus"/>
         <TextBlock Grid.Row="1" Text="Phone" Margin="28,22,72,13"/>
-        <TextBox  Grid.Row="1" Grid.ColumnSpan="2" Margin="100,27,53,43"/>
+        <TextBox Name="txtPhone" Grid.Row="1" Grid.ColumnSpan="2" Margin="100,27,53,43"/>
         <TextBlock Grid.Row="2" Text="E-mail" Margin="28,22,72,13"/>
-        <TextBox  Grid.Row="2" Grid.ColumnSpan="2" Margin="100,27,53,43"/>
+        <TextBox Name="txtMail" Grid.Row="2" Grid.ColumnSpan="2" Margin="100,27,53,43"/>
 
     </Grid>
 </Window>
