@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RegEx"
         mc:Ignorable="d"
-        Title="Input Validator" Height="210" Width="322.572" Icon="{StaticResource WindowIcon}"
+        Title="Input Validator" Height="288.429" Width="322.572" Icon="{StaticResource WindowIcon}"
         Background="{DynamicResource WindowBg}">
     <Window.Resources>
         <Style TargetType="{x:Type TextBlock}">
@@ -34,6 +34,10 @@
         </Grid.RowDefinitions>
         <TextBlock Text="Name" Margin="28,22,72,13"/>
         <TextBox Grid.ColumnSpan="2" Margin="100,27,53,43"/>
+        <TextBlock Grid.Row="1" Text="Phone" Margin="28,22,72,13"/>
+        <TextBox  Grid.Row="1" Grid.ColumnSpan="2" Margin="100,27,53,43"/>
+        <TextBlock Grid.Row="2" Text="E-mail" Margin="28,22,72,13"/>
+        <TextBox  Grid.Row="2" Grid.ColumnSpan="2" Margin="100,27,53,43"/>
 
     </Grid>
 </Window>
