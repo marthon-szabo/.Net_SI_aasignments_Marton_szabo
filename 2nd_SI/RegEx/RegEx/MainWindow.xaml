@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RegEx"
+        xmlns:UVM="clr-namespace:RegEx.ViewModels"
         mc:Ignorable="d"
-        Title="Input Validator" Height="288.429" Width="322.572" Icon="{StaticResource WindowIcon}"
+        Title="Input Validator" Height="338.572" Width="374.001" Icon="{StaticResource WindowIcon}"
         Background="{DynamicResource WindowBg}">
     <Window.Resources>
         <Style TargetType="{x:Type TextBlock}">
@@ -16,11 +17,13 @@
         <Style TargetType="{x:Type TextBox}">
             <Setter Property="Background" Value="Red"/>
             <Setter Property="Margin" Value="-30,30,30,40"/>
+            <Setter Property="Width" Value="180"/>
         </Style>
         <LinearGradientBrush x:Key="WindowBg">
             <GradientStop Offset="0" Color="Beige"/>
             <GradientStop Offset="1" Color="AntiqueWhite"/>
         </LinearGradientBrush>
+        <UVM:UserViewModel x:Key="usrViewModel"/>
     </Window.Resources>
     <Grid Name="MainGrid" Margin="0,0,2,0">
         <Grid.ColumnDefinitions>
@@ -40,9 +43,9 @@
         </TextBlock>
         <TextBox Name="txtName" Tag="Name must contain only alphabetic characters!" Grid.ColumnSpan="2" Margin="100,27,53,43" TextChanged="NameGotFocus"/>
         <TextBlock Grid.Row="1" Text="Phone" Margin="28,22,72,13"/>
-        <TextBox Name="txtPhone" Grid.Row="1" Grid.ColumnSpan="2" Margin="100,27,53,43"/>
+        <TextBox Name="txtPhone" Grid.Row="1" Grid.ColumnSpan="2" Margin="100,27,53,43" Text="{Binding Phone, Source={StaticResource usrViewModel}}" />
         <TextBlock Grid.Row="2" Text="E-mail" Margin="28,22,72,13"/>
-        <TextBox Name="txtMail" Grid.Row="2" Grid.ColumnSpan="2" Margin="100,27,53,43"/>
-
+        <TextBox Name="txtMail" Grid.Row="2" Grid.ColumnSpan="2" Margin="100,27,53,43" Text="{Binding Email, Source={StaticResource usrViewModel}}"/>
+        <Button Content="Save" Name="btnSave" Width="70" Height="30" Margin="259,60,55,-20" Grid.Row="2" Command="{Binding btnClick, Source={StaticResource usrViewModel}}"/>
     </Grid>
 </Window>

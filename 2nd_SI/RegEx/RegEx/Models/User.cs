@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace RegEx
 {
-    class User : INotifyPropertyChanged
+    public class User : INotifyPropertyChanged
     {
         #region Fields
         string _name;
@@ -36,11 +37,9 @@ namespace RegEx
 
             set
             {
-                if (!_phone.Equals(value))
-                {
-                    _phone = value;
-                    NotifyChange("Phone");
-                }
+               
+                _phone = value;
+                NotifyChange("Phone");
             }
         }
         
@@ -50,11 +49,8 @@ namespace RegEx
 
             set
             {
-                if (!_eMail.Equals(value))
-                {
-                    _eMail = value;
-                    NotifyChange("Phone");
-                }
+                _eMail = value;
+                NotifyChange("Phone");
             }
         }
 
@@ -71,6 +67,33 @@ namespace RegEx
             }
         }
 
+
         #endregion
+
+        public bool CheckPhone(string phone)
+        {
+            if (!Regex.IsMatch(phone, @"[0-9]{11}|[+,0-9]{12}"))
+            {
+                return false;
+            }
+            else
+            {
+                Phone = phone;
+                return true;
+            }
+        }
+        
+        internal bool CheckEmail(string email)
+        {
+            if (!Regex.IsMatch(email, @"\.@"))
+            {
+                return false;
+            }
+            else
+            {
+                Email = email;
+                return true;
+            }
+        }
     }
 }

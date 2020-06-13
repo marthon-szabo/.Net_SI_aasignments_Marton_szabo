@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RegEx.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,8 @@ namespace RegEx
     /// </summary>
     public partial class MainWindow : Window
     {
+        UserViewModel _uvm;
+
         TextBlock attention = new TextBlock()
         {
             Foreground = Brushes.Red,
@@ -29,9 +32,8 @@ namespace RegEx
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = this;
-            InitializeAttention();
-
+            _uvm = new UserViewModel();
+            DataContext = _uvm;
         }
 
         private void NameGotFocus(object sender, TextChangedEventArgs e)
@@ -49,11 +51,7 @@ namespace RegEx
             }
 
         }
-        void InitializeAttention()
-        {
-            MainGrid.Children.Add(attention);
-            attention.Visibility = Visibility.Hidden;
-        }
+       
 
 
 
