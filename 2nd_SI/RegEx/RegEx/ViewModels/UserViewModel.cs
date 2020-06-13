@@ -1,6 +1,7 @@
 ﻿using RegEx.ViewModels.Commands;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
@@ -8,10 +9,11 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Xml.Serialization;
 
 namespace RegEx.ViewModels
 {
-    class UserViewModel
+    class UserViewModel : INotifyPropertyChanged
     {
         User _user = new User();
         UserCommands _uCommands;
@@ -19,6 +21,20 @@ namespace RegEx.ViewModels
         SolidColorBrush _phoneBg;
         string _email;
         Brushes _emailBg;
+
+        #region PropertyChange
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void NotifyChange(string propName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propName));
+            }
+        }
+
+        #endregion
 
         public UserViewModel()
         {
@@ -30,11 +46,14 @@ namespace RegEx.ViewModels
 
         public string Name { get { return _user.Name; } set { _user.Name = value; } }
         
-        public string Phone { get { return _phone; } 
+        public string Phone { get { return _user.Phone; } 
             set 
             {
-                
-                _phone = value; 
+                if (_user.Phone != value || _user.Phone != null)
+                {
+                    _user.Phone = value;
+                    NotifyChange("Phone");
+                }
                
             } }
         
@@ -59,9 +78,10 @@ namespace RegEx.ViewModels
             }
             else
             {
-                if (_user.CheckPhone(_phone) && _user.CheckEmail(_email))
+                if (_user.CheckPhone(Phone) && _user.CheckEmail(_email))
                 {
-                    MessageBox.Show("true");
+                    MessageBox.Show(Phone);
+                    Phone = ReformatPhone(Phone);
                 }
                 else
                 {
@@ -73,12 +93,29 @@ namespace RegEx.ViewModels
 
         public string ReformatPhone(string original)
         {
-            return String.Format("(###)###-####", original);
+            char[] chars = original.ToCharArray();
+            StringBuilder sb = new StringBuilder();
+            sb.Append("(");
+
+            for (int i = 0; i < chars.Length; i++)
+            {
+                if (i == 3)
+                {
+                    sb.Append(")");
+                }
+                else if (i == 7)
+                {
+                    sb.Append("-");
+                }
+                sb.Append(chars[i].ToString());
+            }
+
+            return sb.ToString();
         }
 
         public bool isNull()
         {
-            return (_phone == null || _email == null) ? true : false;
+            return (Phone == null || _email == null) ? true : false;
         }
     }
 }

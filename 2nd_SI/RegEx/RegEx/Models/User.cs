@@ -78,14 +78,13 @@ namespace RegEx
             }
             else
             {
-                Phone = phone;
                 return true;
             }
         }
         
         internal bool CheckEmail(string email)
         {
-            if (!Regex.IsMatch(email, @"\.@"))
+            if (!Regex.IsMatch(email, @"[.@]"))
             {
                 return false;
             }
